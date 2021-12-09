@@ -10,8 +10,6 @@ RTL8192FU driver for Linux kernel
 
 `sudo dkms add ./rtl8192fu-dkms`
 
-`sudo dkms build rtl8192fu/5.8.6.2`
-
 `sudo dkms install rtl8192fu/5.8.6.2`
 
 
@@ -28,7 +26,7 @@ RTL8192FU driver for Linux kernel
 
 You can install rtl8192fu driver with following commands from PPA.
 
-for xUbuntu 16.04-18.04-20.04-20.10-21.04 / Linux Mint 18.x-19.x-20.x
+for xUbuntu 16.04-18.04-20.04-21.04-21.10 / Linux Mint 18.x-19.x-20.x
 
 `sudo add-apt-repository ppa:kelebek333/kablosuz`
 
