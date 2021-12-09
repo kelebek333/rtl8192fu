@@ -136,7 +136,8 @@ static void rtw_dev_shutdown(struct device *dev)
 
 
 #define USB_VENDER_ID_REALTEK		0x0BDA
-
+#define USB_VENDER_ID_ASUS		0x0B05
+#define USB_VENDER_ID_EDIMAX		0x7392
 
 /* DID_USB_v916_20130116 */
 static struct usb_device_id rtw_usb_id_tbl[] = {
@@ -249,6 +250,10 @@ static struct usb_device_id rtw_usb_id_tbl[] = {
 	/*=== Realtek demoboard ===*/
 	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xF192, 0xff, 0xff, 0xff), .driver_info = RTL8192F}, /* 8192FU 2*2 */
 	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0xA725, 0xff, 0xff, 0xff), .driver_info = RTL8192F}, /* 8725AU 2*2 */
+	/*=== Customer ID ===*/
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_ASUS, 0x18F1, 0xff, 0xff, 0xff), .driver_info = RTL8192F}, /* 8192FU 2*2 */
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_EDIMAX, 0xB722, 0xff, 0xff, 0xff), .driver_info = RTL8192F}, /* 8192FU 2*2 */
+	{USB_DEVICE_AND_INTERFACE_INFO(USB_VENDER_ID_REALTEK, 0x318B, 0xff, 0xff, 0xff), .driver_info = RTL8192F}, /* 8192FU 2*2 */
 #endif
 
 #ifdef CONFIG_RTL8821C
