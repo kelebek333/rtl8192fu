@@ -19,7 +19,7 @@ https://github.com/torvalds/linux/commit/c98411dc8cf6c15b8dbbfb37475bcc08b895888
 `sudo dkms install .`
 
 
-#### Blacklist (alias) for kernel 6.2 and up
+#### Blacklist (alias) for kernel 6.5 and up
 
 If you are using kernel 6.5 and up, you must use a configuration file with following command for preventing to conflict rtl8192fu module with built-in rtl8xxxu module.
 
