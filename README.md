@@ -2,15 +2,38 @@ RTL8192FU driver for Linux kernel
 
 ------------------
 
+Info:  Builtin rtl8192fu support added to Linux kernel 6.5.
+
+https://github.com/torvalds/linux/commit/c98411dc8cf6c15b8dbbfb37475bcc08b8958880
+
+------------------
+
 ## How to install
 
 `sudo apt-get install build-essential git dkms linux-headers-$(uname -r)`
 
 `git clone https://github.com/kelebek333/rtl8192fu-dkms`
 
-`sudo dkms add ./rtl8192fu-dkms`
+`cd ./rtl8192fu-dkms`
 
-`sudo dkms install rtl8192fu/5.8.6.2`
+`sudo dkms install .`
+
+
+#### Blacklist (alias) for kernel 6.2 and up
+
+If you are using kernel 6.5 and up, you must use a configuration file with following command for preventing to conflict rtl8192fu module with built-in rtl8xxxu module.
+
+`sudo cp ./rtl8192fu-alias-blacklist.conf /etc/modprobe.d/`
+
+##### Then you must update initramfs
+
+For initramfs
+
+`sudo update initramfs -u`
+
+For dracut
+
+`sudo dracut -q --force`
 
 
 ------------------
