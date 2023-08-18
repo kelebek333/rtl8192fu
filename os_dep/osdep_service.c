@@ -1294,7 +1294,7 @@ u32 _rtw_down_sema(_sema *sema)
 inline void thread_exit(_completion *comp)
 {
 #ifdef PLATFORM_LINUX
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(5, 17, 0))
+#if LINUX_VERSION_CODE >= KERNEL_VERSION(5, 17, 0)
 	kthread_complete_and_exit(comp, 0);
 #else
 	complete_and_exit(comp, 0);
@@ -2552,11 +2552,7 @@ int rtw_change_ifname(_adapter *padapter, const char *ifname)
 
 	rtw_init_netdev_name(pnetdev, ifname);
 
-#if LINUX_VERSION_CODE < KERNEL_VERSION(5, 17, 0)
 	_rtw_memcpy(pnetdev->dev_addr, adapter_mac_addr(padapter), ETH_ALEN);
-#else
-	dev_addr_set(pnetdev, adapter_mac_addr(padapter));
-#endif
 
 	if (rtnl_lock_needed)
 		ret = register_netdev(pnetdev);
@@ -2679,7 +2675,9 @@ u64 rtw_division64(u64 x, u64 y)
 inline u32 rtw_random32(void)
 {
 #ifdef PLATFORM_LINUX
-#if (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0))
+		#if (LINUX_VERSION_CODE >= KERNEL_VERSION(4, 11, 0))
+	return get_random_u32();
+#elif (LINUX_VERSION_CODE >= KERNEL_VERSION(3, 8, 0))
 	return prandom_u32();
 #elif (LINUX_VERSION_CODE <= KERNEL_VERSION(2, 6, 18))
 	u32 random_int;
@@ -3214,4 +3212,5 @@ int hexstr2bin(const char *hex, u8 *buf, size_t len)
 	}
 	return 0;
 }
+
 
