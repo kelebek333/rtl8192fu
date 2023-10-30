@@ -29,7 +29,7 @@ If you are using kernel 6.5 and up, you must use a configuration file with follo
 
 For initramfs
 
-`sudo update initramfs -u`
+`sudo update-initramfs -u`
 
 For dracut
 
