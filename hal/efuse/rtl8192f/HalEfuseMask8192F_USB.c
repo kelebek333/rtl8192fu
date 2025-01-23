@@ -58,7 +58,7 @@ u8 Array_MP_8192F_MUSB[] = {
 		0x10,
 };
 
-u16 EFUSE_GetArrayLen_MP_8192F_MUSB()
+u16 EFUSE_GetArrayLen_MP_8192F_MUSB(void)
 {
 	return sizeof(Array_MP_8192F_MUSB)/sizeof(u8);
 }
@@ -88,4 +88,3 @@ BOOLEAN EFUSE_IsAddressMasked_MP_8192F_MUSB(
 }
 
 #endif /* end of EFUSE_SUPPORT */
-
